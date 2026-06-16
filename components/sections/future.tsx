@@ -1,27 +1,24 @@
 'use client'
 
-import { Reveal } from '@/components/reveal'
+import { Magnetic } from '@/components/magnetic'
+import { Reveal, RevealLines } from '@/components/reveal'
 
 export function Future() {
   return (
     <section className="relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-1/2 h-[120%] w-[120%] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(ellipse_at_center,rgba(245,245,245,0.08),transparent_60%)]" />
-      </div>
-
       <div className="relative mx-auto max-w-4xl px-6 py-32 text-center md:py-48">
         <Reveal>
-          <p className="mb-8 text-xs uppercase tracking-[0.25em] text-muted-foreground">
+          <p className="mb-8 text-[11px] uppercase tracking-eyebrow text-muted-foreground">
             What Comes Next
           </p>
         </Reveal>
-        <Reveal delay={0.1}>
-          <h2 className="font-serif text-4xl leading-[1.1] tracking-tight text-balance sm:text-6xl md:text-7xl">
-            The End Of One Chapter. The Beginning Of Another.
-          </h2>
-        </Reveal>
+        <RevealLines
+          as="h2"
+          lines={['The End Of One Chapter.', 'The Beginning Of Another.']}
+          className="font-serif text-4xl text-display text-balance sm:text-6xl md:text-7xl"
+        />
         <Reveal delay={0.2}>
-          <p className="mx-auto mt-8 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
+          <p className="mx-auto mt-8 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
             The doors we close today open onto roads we have yet to imagine.
             Wherever we go, we carry these years with us — the laughter, the
             lessons, and the people who made it matter. This is not goodbye. It
@@ -29,12 +26,14 @@ export function Future() {
           </p>
         </Reveal>
         <Reveal delay={0.3}>
-          <a
-            href="#home"
-            className="mt-12 inline-block rounded-full bg-accent px-8 py-3.5 text-sm font-medium text-accent-foreground transition-transform hover:scale-105"
-          >
-            Back To The Beginning
-          </a>
+          <Magnetic className="mt-12 inline-block">
+            <a
+              href="#home"
+              className="inline-block rounded-full bg-accent px-8 py-3.5 text-sm font-medium text-accent-foreground transition-shadow duration-300 hover:shadow-[0_0_50px_-8px_rgba(255,255,255,0.5)]"
+            >
+              Back To The Beginning
+            </a>
+          </Magnetic>
         </Reveal>
       </div>
     </section>

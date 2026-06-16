@@ -1,7 +1,7 @@
 'use client'
 
+import { ParallaxImage } from '@/components/parallax-image'
 import { Reveal } from '@/components/reveal'
-import Image from 'next/image'
 
 const photos = [
   { src: '/images/gallery-1.png', caption: 'Hallway Laughter', span: 'md:row-span-2' },
@@ -36,27 +36,27 @@ export function Gallery() {
       </div>
 
       <div className="grid auto-rows-[240px] grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-5">
-        {photos.map((photo, i) => (
-          <Reveal
+        {photos.map((photo) => (
+          <figure
             key={photo.src}
-            delay={(i % 3) * 0.1}
-            className={`group ${photo.span}`}
+            className={`group relative h-full w-full overflow-hidden rounded-2xl border border-border ${photo.span}`}
           >
-            <figure className="relative h-full w-full overflow-hidden rounded-2xl border border-border">
-              <Image
-                src={photo.src || "/placeholder.svg"}
-                alt={photo.caption}
-                fill
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-90" />
-              <figcaption className="absolute bottom-0 left-0 p-5">
-                <span className="block translate-y-2 text-lg font-medium text-foreground opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                  {photo.caption}
-                </span>
-              </figcaption>
-            </figure>
-          </Reveal>
+            <ParallaxImage
+              src={photo.src}
+              alt={photo.caption}
+              className="h-full w-full"
+              imgClassName="grayscale-[0.35] transition-all duration-700 ease-out group-hover:scale-[1.08] group-hover:grayscale-0"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/85 via-transparent to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-95" />
+            <figcaption className="pointer-events-none absolute bottom-0 left-0 p-5">
+              <span className="block text-[10px] uppercase tracking-eyebrow text-muted-foreground opacity-0 transition-all duration-500 group-hover:opacity-100">
+                Memory
+              </span>
+              <span className="block translate-y-2 font-serif text-xl text-foreground opacity-0 transition-all delay-75 duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                {photo.caption}
+              </span>
+            </figcaption>
+          </figure>
         ))}
       </div>
     </section>
