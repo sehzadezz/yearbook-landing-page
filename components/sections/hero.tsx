@@ -6,7 +6,7 @@ import { ArrowDown, Play } from 'lucide-react'
 import Image from 'next/image'
 import { useRef } from 'react'
 
-const lines = ['Every Moment.', 'Every Story.', 'Every Memory.']
+const lines = ['Jaysyul muzaffar']
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null)
