@@ -13,7 +13,7 @@ export function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const heroImages = [
     "/images/hero.png",
-    "https://github.com/sehzadezz/yearbook-landing-page/blob/main/public/images/Akhwat.JPG?raw=true"
+    "https://raw.githubusercontent.com/sehzadezz/yearbook-landing-page/main/public/images/Akhwat.JPG"
   ]
   useEffect(() => {
     const timer = setInterval(() => {
