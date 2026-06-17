@@ -4,12 +4,23 @@ import { Magnetic } from '@/components/magnetic'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { ArrowDown, Play } from 'lucide-react'
 import Image from 'next/image'
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { Playfair_Display } from 'next/font/google'
 const myFont = Playfair_Display({ subsets: ['latin'] })
 const lines = ['Jaysyul muzaffar']
 
 export function Hero() {
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const heroImages = [
+    "/images/hero.png",
+    "/images/Akhwat.JPG"
+  ]
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev === 0 ? 1 : 0))
+    }, 4000) 
+    return () => clearInterval(timer)
+  }, [])
   const ref = useRef<HTMLElement>(null)
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -27,13 +38,18 @@ export function Hero() {
       className="relative flex min-h-screen items-center justify-center overflow-hidden"
     >
       <motion.div style={{ y, scale, filter: blur }} className="absolute inset-0">
-        <Image
-          src="/images/hero.png"
-          alt="Graduates throwing their caps into a golden sunset sky"
-          fill
-          priority
-          className="object-cover"
-        />
+        {heroImages.map((img, index) => (
+          <Image
+            key={img}
+            src={img}
+            alt={`Hero Background ${index + 1}`}
+            fill
+            priority={index === 0}
+            className={`object-cover transition-opacity duration-1000 ease-in-out ${
+              index === currentSlide ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        ))}
         <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/45 to-background" />
         <div className="absolute inset-0 bg-background/30" />
       </motion.div>
