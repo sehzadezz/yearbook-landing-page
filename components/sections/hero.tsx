@@ -39,17 +39,17 @@ export function Hero() {
     >
       <motion.div style={{ y, scale, filter: blur }} className="absolute inset-0">
         {heroImages.map((img, index) => (
-          <Image
+          <img
             key={img}
             src={img}
             alt={`Hero Background ${index + 1}`}
-            fill
-            priority={index === 0}
-            className={`object-cover transition-opacity duration-1000 ease-in-out ${
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
               index === currentSlide ? "opacity-100" : "opacity-0"
             }`}
           />
         ))}
+          
+        
         <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/45 to-background" />
         <div className="absolute inset-0 bg-background/30" />
       </motion.div>
