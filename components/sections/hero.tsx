@@ -53,7 +53,7 @@ export function Hero() {
           Graduation Yearbook 2027
         </motion.div>
 
-        <h1 className="font-serif text-5xl text-display text-balance sm:text-7xl md:text-[8.5rem] leading-relaxed">
+        <h1 className={`${myFont.className} text-5xl text-display text-balance sm:text-7xl md:text-[8.5rem] leading-relaxed`}>
           {lines.map((line, i) => (
             <span key={line} className="block overflow-hidden pt-4 pb-10 px-4">
               <motion.span
