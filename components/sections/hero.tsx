@@ -7,7 +7,7 @@ import Image from 'next/image'
 import { useRef, useState, useEffect } from 'react'
 import { Playfair_Display } from 'next/font/google'
 const myFont = Playfair_Display({ subsets: ['latin'] })
-const lines = ['Jaysyul muzaffar']
+const lines = ['Jaysyul Muzaffar']
 
 export function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0)
