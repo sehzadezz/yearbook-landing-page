@@ -51,9 +51,9 @@ export function Hero() {
           Graduation Yearbook 2027
         </motion.div>
 
-        <h1 className="font-serif text-5xl text-display text-balance sm:text-7xl md:text-[8.5rem]">
+        <h1 className="font-serif text-5xl text-display text-balance sm:text-7xl md:text-[8.5rem] leading-relaxed">
           {lines.map((line, i) => (
-            <span key={line} className="block overflow-hidden py-[0.5%]">
+            <span key={line} className="block overflow-hidden py-4 pb-6">
               <motion.span
                 className="block"
                 initial={{ y: '115%', rotate: 3 }}
