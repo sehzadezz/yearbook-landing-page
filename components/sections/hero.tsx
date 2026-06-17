@@ -5,8 +5,8 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { ArrowDown, Play } from 'lucide-react'
 import Image from 'next/image'
 import { useRef } from 'react'
-import { Playfair_Display } from 'next/font/google'
-const myFont = Playfair_Display({ subsets: ['latin'] })
+import { Montserrat } from 'next/font/google'
+const myFont = Montserrat({ subsets: ['latin'], weight: '700' }
 
 const lines = ['Jaysyul muzaffar']
 
