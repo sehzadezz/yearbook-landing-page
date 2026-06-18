@@ -102,6 +102,16 @@ export function Hero() {
             </span>
           ))}
         </h1>
+        {/* KODE TAGLINE MULAI DARI SINI */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
+          className="mt-6 text-sm md:text-base font-semibold tracking-[0.25em] uppercase text-white/90 drop-shadow-md"
+        >
+          "Fight With Faith Win With Glory"
+        </motion.p>
+        {/* BATAS KODE TAGLINE */}
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
