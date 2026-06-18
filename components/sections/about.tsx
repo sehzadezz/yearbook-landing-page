@@ -1,8 +1,40 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+
+// Data filosofi yang kita rapikan agar kodenya lebih bersih
+const philosophyData = [
+  {
+    id: 1,
+    roman: 'I',
+    tag: 'The Why',
+    title: 'Makna Nama',
+    teaser: 'Jaysyul Muzaffar bukanlah sekadar sebutan, melainkan sebuah doa dan visi agung.',
+    fullText: 'Berakar dari bahasa Arab, nama ini merepresentasikan doa abadi agar angkatan ini menjadi barisan pejuang yang selalu dibimbing menuju kemenangan yang diridhai. Ini adalah pengingat bahwa setiap langkah akademis dan pengabdian kita harus dinaungi oleh iman yang teguh untuk mencapai kejayaan sejati.'
+  },
+  {
+    id: 2,
+    roman: 'II',
+    tag: 'The What',
+    title: 'Filosofi Logo',
+    teaser: 'Setiap sudut dan garis pada lambang ini adalah representasi visual dari identitas kami.',
+    fullText: 'Desain logo ini memadukan unsur dinamis dan kokoh. Sudut tajam melambangkan ambisi untuk terus mendaki mencapai puncak prestasi. Sementara garis yang saling bertaut melambangkan ukhuwah (persaudaraan) yang erat, saling melindungi dan menyatukan setiap individu di dalamnya tanpa memandang perbedaan.'
+  },
+  {
+    id: 3,
+    roman: 'III',
+    tag: 'The How',
+    title: 'Semangat Aksi',
+    teaser: '"Fight With Faith Win With Glory". Bagaimana kami menerjemahkan visi ini menjadi aksi nyata.',
+    fullText: 'Semboyan ini adalah kompas pergerakan kami. "Fight With Faith" bermakna setiap usaha harus berlandaskan integritas dan niat yang lurus. "Win With Glory" adalah tujuannya—bukan sekadar menang untuk diri sendiri, melainkan menang dengan membawa kebermanfaatan, karya, dan warisan kebaikan bagi sekitar.'
+  }
+]
 
 export function About() {
+  // State untuk melacak kotak mana yang sedang terbuka (menyimpan ID)
+  const [expandedId, setExpandedId] = useState<number | null>(null)
+
   return (
     <section id="about" className="relative pt-24 pb-40 md:pt-32 md:pb-56 bg-black text-white overflow-hidden">
       {/* Background Glow Effect */}
@@ -23,74 +55,60 @@ export function About() {
           </p>
         </motion.div>
 
-        {/* Philosophy Grid - Glassmorphism & Watermark */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Philosophy Grid - Expandable Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
           
-          {/* Card 1: Makna Nama */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-10 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:bg-white/10 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] text-left"
-          >
-            {/* Watermark Number */}
-            <span className="absolute -right-4 -top-8 text-[160px] font-serif font-bold italic leading-none text-white/[0.03] transition-all duration-500 group-hover:scale-110 group-hover:text-white/[0.06] select-none pointer-events-none">
-              I
-            </span>
-            
-            <div className="relative z-10">
-              <p className="text-xs font-bold tracking-[0.2em] text-white/40 mb-3 uppercase">The Why</p>
-              <h3 className="font-serif text-2xl mb-4 text-white">Makna Nama</h3>
-              <p className="text-white/70 leading-relaxed text-sm">
-                Jaysyul Muzaffar bukanlah sekadar sebutan, melainkan sebuah doa dan visi agung. [Tuliskan alasan fundamental mengapa nama ini dipilih dan apa harapan besar yang disematkan di baliknya].
-              </p>
-            </div>
-          </motion.div>
+          {philosophyData.map((item, index) => (
+            <motion.div
+              layout // Properti ajaib agar animasi melebarnya mulus
+              key={item.id}
+              onClick={() => setExpandedId(expandedId === item.id ? null : item.id)}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 md:p-10 backdrop-blur-md transition-colors duration-300 hover:bg-white/10 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] text-left cursor-pointer"
+            >
+              {/* Watermark Number */}
+              <span className="absolute -right-4 -top-8 text-[160px] font-serif font-bold italic leading-none text-white/[0.03] transition-all duration-500 group-hover:scale-110 group-hover:text-white/[0.06] select-none pointer-events-none">
+                {item.roman}
+              </span>
+              
+              <motion.div layout className="relative z-10">
+                <motion.p layout className="text-xs font-bold tracking-[0.2em] text-white/40 mb-3 uppercase">
+                  {item.tag}
+                </motion.p>
+                
+                <motion.h3 layout className="font-serif text-2xl mb-4 text-white flex items-center justify-between">
+                  {item.title}
+                  {/* Indikator Tombol Buka/Tutup */}
+                  <span className="text-[10px] uppercase tracking-wider font-sans font-bold text-white/50 bg-white/10 px-3 py-1.5 rounded-full border border-white/10 group-hover:text-white group-hover:border-white/30 transition-all">
+                    {expandedId === item.id ? 'Tutup' : 'Detail'}
+                  </span>
+                </motion.h3>
 
-          {/* Card 2: Filosofi Logo */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-10 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:bg-white/10 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] text-left"
-          >
-            {/* Watermark Number */}
-            <span className="absolute -right-4 -top-8 text-[160px] font-serif font-bold italic leading-none text-white/[0.03] transition-all duration-500 group-hover:scale-110 group-hover:text-white/[0.06] select-none pointer-events-none">
-              II
-            </span>
-            
-            <div className="relative z-10">
-              <p className="text-xs font-bold tracking-[0.2em] text-white/40 mb-3 uppercase">The What</p>
-              <h3 className="font-serif text-2xl mb-4 text-white">Filosofi Logo</h3>
-              <p className="text-white/70 leading-relaxed text-sm">
-                Setiap sudut dan garis pada lambang ini adalah representasi visual dari visi kami. [Jelaskan elemen visual logomu di sini. Misalnya makna bentuk segitiga, arah garis, dan komposisi warnanya].
-              </p>
-            </div>
-          </motion.div>
+                <motion.p layout className="text-white/70 leading-relaxed text-sm">
+                  {item.teaser}
+                </motion.p>
 
-          {/* Card 3: Semangat Aksi */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-10 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:bg-white/10 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] text-left"
-          >
-            {/* Watermark Number */}
-            <span className="absolute -right-2 -top-8 text-[160px] font-serif font-bold italic leading-none text-white/[0.03] transition-all duration-500 group-hover:scale-110 group-hover:text-white/[0.06] select-none pointer-events-none">
-              III
-            </span>
-            
-            <div className="relative z-10">
-              <p className="text-xs font-bold tracking-[0.2em] text-white/40 mb-3 uppercase">The How</p>
-              <h3 className="font-serif text-2xl mb-4 text-white">Semangat Aksi</h3>
-              <p className="text-white/70 leading-relaxed text-sm">
-                "Fight With Faith Win With Glory". [Gambarkan bagaimana angkatan ini menerjemahkan visinya ke dalam aksi nyata, solidaritas kebersamaan, dan pergerakan menuju masa depan].
-              </p>
-            </div>
-          </motion.div>
+                {/* Bagian yang muncul saat diklik */}
+                <AnimatePresence>
+                  {expandedId === item.id && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                      animate={{ opacity: 1, height: 'auto', marginTop: 24 }}
+                      exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pt-5 border-t border-white/10 text-white/90 text-sm leading-relaxed">
+                        {item.fullText}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            </motion.div>
+          ))}
 
         </div>
       </div>
