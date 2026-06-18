@@ -2,54 +2,65 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
-// Kita tambahkan icon SkipForward dan SkipBack dari lucide-react
-import { Volume2, VolumeX, SkipForward, SkipBack } from 'lucide-react'
+// Kita import icon Play dan Pause agar lebih jelas
+import { Play, Pause, SkipBack, SkipForward, Volume2, VolumeX } from 'lucide-react'
 
-// DAFTAR LAGU (Ganti sesuai dengan nama file di folder public kamu)
+// DAFTAR LAGU (Pastikan namanya sudah tepat seperti ini)
 const playlist = [
   '/daylight.mp3',
   '/time-to-change-your-life.mp3'
 ]
+
 export function MusicPlayer() {
   const [isPlaying, setIsPlaying] = useState(false)
   const [trackIndex, setTrackIndex] = useState(0)
+  // State baru untuk mengatur volume (default 50%)
+  const [volume, setVolume] = useState(0.5)
+  const [isMuted, setIsMuted] = useState(false)
+  
   const audioRef = useRef<HTMLAudioElement>(null)
 
-  // Fungsi Play & Pause
+  // Efek pintar untuk menyesuaikan volume suara dengan pergeseran slider
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = isMuted ? 0 : volume
+    }
+  }, [volume, isMuted])
+
+  // Fungsi Play & Pause yang diperbarui
   const togglePlay = () => {
     if (audioRef.current) {
       if (isPlaying) {
         audioRef.current.pause()
       } else {
-        audioRef.current.play()
+        // Ditambahkan penanganan khusus jika browser memblokir audio
+        audioRef.current.play().catch((err) => console.log("Gagal memutar audio:", err))
       }
       setIsPlaying(!isPlaying)
     }
   }
 
-  // Fungsi Lagu Selanjutnya
   const nextTrack = () => {
     setTrackIndex((prev) => (prev + 1) % playlist.length)
     setIsPlaying(true)
   }
 
-  // Fungsi Lagu Sebelumnya
   const prevTrack = () => {
     setTrackIndex((prev) => (prev - 1 + playlist.length) % playlist.length)
     setIsPlaying(true)
   }
 
-  // Efek pintar: otomatis memutar lagu baru saat tombol Next/Prev ditekan
+  // Otomatis memutar lagu baru saat di-skip
   useEffect(() => {
     if (isPlaying && audioRef.current) {
-      audioRef.current.play()
+      audioRef.current.play().catch((e) => console.log(e))
     }
   }, [trackIndex, isPlaying])
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex items-center gap-1 rounded-full border border-white/10 bg-white/5 p-2 backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.3)] text-white/80 transition-all duration-300 hover:bg-white/10 hover:border-white/20">
+    <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3 rounded-full border border-white/10 bg-black/40 p-2 md:p-3 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] transition-all duration-300 hover:bg-black/60 hover:border-white/20">
       
-      {/* Audio Element: otomatis lanjut ke lagu berikutnya (nextTrack) saat selesai */}
+      {/* Audio Element */}
       <audio 
         ref={audioRef} 
         src={playlist[trackIndex]} 
@@ -57,44 +68,52 @@ export function MusicPlayer() {
         preload="auto" 
       />
       
-      {/* Tombol Previous */}
-      <motion.button
-        whileHover={{ scale: 1.1, color: '#ffffff' }}
-        whileTap={{ scale: 0.9 }}
-        onClick={prevTrack}
-        className="flex h-10 w-10 items-center justify-center rounded-full hover:bg-white/10 transition-colors"
-        aria-label="Lagu Sebelumnya"
-      >
-        <SkipBack size={18} />
-      </motion.button>
+      {/* --- GRUP KONTROL LAGU (Prev, Play/Pause, Next) --- */}
+      <div className="flex items-center gap-1 md:gap-2 border-r border-white/20 pr-3 md:pr-4">
+        <button onClick={prevTrack} className="p-2 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-colors">
+          <SkipBack size={18} />
+        </button>
+        
+        {/* Tombol Play/Pause dibuat Solid Putih agar terlihat premium */}
+        <button 
+          onClick={togglePlay} 
+          className="flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full bg-white text-black hover:scale-105 transition-transform shadow-lg"
+        >
+          {isPlaying ? (
+            <Pause size={20} fill="currentColor" />
+          ) : (
+            <Play size={20} fill="currentColor" className="ml-1" />
+          )}
+        </button>
 
-      {/* Tombol Play/Pause Utama */}
-      <motion.button
-        whileHover={{ scale: 1.05, color: '#ffffff' }}
-        whileTap={{ scale: 0.95 }}
-        onClick={togglePlay}
-        className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 border border-white/5 transition-colors shadow-inner"
-        aria-label="Play/Pause"
-      >
-        {isPlaying ? (
-          <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ repeat: Infinity, duration: 1.5 }}>
-            <Volume2 size={20} />
-          </motion.div>
-        ) : (
-          <VolumeX size={20} />
-        )}
-      </motion.button>
+        <button onClick={nextTrack} className="p-2 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-colors">
+          <SkipForward size={18} />
+        </button>
+      </div>
 
-      {/* Tombol Next */}
-      <motion.button
-        whileHover={{ scale: 1.1, color: '#ffffff' }}
-        whileTap={{ scale: 0.9 }}
-        onClick={nextTrack}
-        className="flex h-10 w-10 items-center justify-center rounded-full hover:bg-white/10 transition-colors"
-        aria-label="Lagu Selanjutnya"
-      >
-        <SkipForward size={18} />
-      </motion.button>
+      {/* --- GRUP KONTROL VOLUME --- */}
+      <div className="flex items-center gap-2 pl-1 pr-2">
+        <button 
+          onClick={() => setIsMuted(!isMuted)} 
+          className="p-1 text-white/70 hover:text-white transition-colors"
+        >
+          {isMuted || volume === 0 ? <VolumeX size={18} /> : <Volume2 size={18} />}
+        </button>
+        
+        {/* Slider Volume */}
+        <input 
+          type="range" 
+          min="0" 
+          max="1" 
+          step="0.01" 
+          value={isMuted ? 0 : volume}
+          onChange={(e) => {
+            setVolume(parseFloat(e.target.value))
+            setIsMuted(false)
+          }}
+          className="w-16 md:w-24 h-1.5 bg-white/20 rounded-lg appearance-none cursor-pointer accent-white"
+        />
+      </div>
 
     </div>
   )
