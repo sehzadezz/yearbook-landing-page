@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 export function About() {
   return (
-    <section id="about" className="relative py-24 md:py-32 bg-black text-white overflow-hidden">
+    <section id="about" className="relative pt-24 pb-40 md:pt-32 md:pb-56 bg-black text-white overflow-hidden">
       {/* Background Glow Effect */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/5 rounded-full blur-[120px] pointer-events-none" />
 
