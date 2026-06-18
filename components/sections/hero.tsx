@@ -68,7 +68,7 @@ export function Hero() {
           <motion.img
             src="https://raw.githubusercontent.com/sehzadezz/yearbook-landing-page/main/public/images/ALMUZAFFAR%20LOGO.png"
             alt="Logo Almuzaffar"
-            className="w-24 h-24 md:w-32 md:h-32 object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"
+            className="w-32 h-32 md:w-48 md:h-48 object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"
             animate={{ y: [0, -12, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           />
