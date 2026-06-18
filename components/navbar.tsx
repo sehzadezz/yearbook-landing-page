@@ -39,7 +39,7 @@ export function Navbar() {
           href="#home"
           className="font-serif text-xl tracking-tight text-foreground"
         >
-          MEMORIA <span className="text-muted-foreground">2027</span>
+          MEMORIA <span className="text-muted-foreground">2024-2027</span>
         </a>
 
         <ul className="hidden items-center gap-9 md:flex">
