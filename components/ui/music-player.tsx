@@ -6,7 +6,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import { Play, Pause, SkipBack, SkipForward, Shuffle, Repeat, Volume2, Menu } from 'lucide-react'
 
 const playlist = [
-  '/daylight.mp3',
+  'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
   '/time-to-change-your-life.mp3'
 ]
 
