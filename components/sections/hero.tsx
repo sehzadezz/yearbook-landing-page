@@ -122,30 +122,47 @@ export function Hero() {
           A digital archive of friendship, growth, and unforgettable memories.
         </motion.p>
 
+        {/* KODE TOMBOL BARU DENGAN INTERAKTIVITAS & GLOW */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 1.15 }}
+          transition={{ duration: 0.9, delay: 1.1, ease: "easeOut" }}
           className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
         >
-          <Magnetic className="w-full sm:w-auto">
-            <a
-              href="#gallery"
-              className="block w-full rounded-full bg-accent px-8 py-3.5 text-center text-sm font-medium text-accent-foreground transition-shadow duration-300 hover:shadow-[0_0_50px_-8px_rgba(255,255,255,0.5)] sm:w-auto"
+          {/* Tombol Utama: Explore Memories with Pop and Glow */}
+          <motion.a
+            href="#gallery"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.98 }}
+            className="group flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-black transition-all duration-300 ease-out hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] shadow-[0_0_20px_rgba(255,255,255,0.2)]"
+          >
+            Explore Memories
+            <motion.span
+              className="transition-transform group-hover:translate-x-1"
+              initial={{ x: 0 }}
+              animate={{ x: 0 }}
             >
-              Explore Memories
-            </a>
-          </Magnetic>
-          <Magnetic className="w-full sm:w-auto">
-            <a
-              href="#videos"
-              className="group flex w-full items-center justify-center gap-2 rounded-full border border-border glass px-8 py-3.5 text-sm font-medium text-foreground transition-colors hover:border-foreground/30 sm:w-auto"
+              →
+            </motion.span>
+          </motion.a>
+
+          {/* Tombol Kedua: Watch Highlights */}
+          <motion.a
+            href="#videos"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.98 }}
+            className="flex items-center gap-2 rounded-full border-2 border-white/40 px-8 py-3.5 text-sm font-semibold text-white transition-all duration-300 ease-out hover:border-white hover:bg-white/10 hover:shadow-[0_0_15px_rgba(255,255,255,0.15)]"
+          >
+            <motion.span
+              animate={{ rotate: [0, 10, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5, repeatDelay: 1 }}
             >
-              <Play className="h-4 w-4 transition-transform group-hover:scale-110" />
-              Watch Highlights
-            </a>
-          </Magnetic>
+              ▶
+            </motion.span>
+            Watch Highlights
+          </motion.a>
         </motion.div>
+        {/* BATAS KODE TOMBOL BARU */}
       </motion.div>
 
       <motion.a
