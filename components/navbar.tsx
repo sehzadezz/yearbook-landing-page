@@ -31,7 +31,7 @@ export function Navbar() {
       <nav
         className={`mx-auto flex max-w-7xl items-center justify-between px-5 transition-all duration-500 md:px-8 ${
           scrolled
-            ? 'my-3 rounded-full border border-border glass py-3'
+            ? 'my-3 rounded-full border border-white/10 bg-white/5 py-3 backdrop-blur-lg shadow-[0_8px_32px_rgba(0,0,0,0.3)]'
             : 'border border-transparent py-5'
         }`}
       >
