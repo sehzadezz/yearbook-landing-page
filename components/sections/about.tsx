@@ -23,58 +23,73 @@ export function About() {
           </p>
         </motion.div>
 
-        {/* Philosophy Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+        {/* Philosophy Grid - Glassmorphism & Watermark */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           
-          {/* Poin 1: Makna Nama */}
+          {/* Card 1: Makna Nama */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-col items-center text-center group"
+            className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-10 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:bg-white/10 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] text-left"
           >
-            <div className="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center mb-6 group-hover:bg-white group-hover:text-black transition-colors duration-500">
-              <span className="font-serif text-2xl italic">I</span>
+            {/* Watermark Number */}
+            <span className="absolute -right-4 -top-8 text-[160px] font-serif font-bold italic leading-none text-white/[0.03] transition-all duration-500 group-hover:scale-110 group-hover:text-white/[0.06] select-none pointer-events-none">
+              I
+            </span>
+            
+            <div className="relative z-10">
+              <p className="text-xs font-bold tracking-[0.2em] text-white/40 mb-3 uppercase">The Why</p>
+              <h3 className="font-serif text-2xl mb-4 text-white">Makna Nama</h3>
+              <p className="text-white/70 leading-relaxed text-sm">
+                Jaysyul Muzaffar bukanlah sekadar sebutan, melainkan sebuah doa dan visi agung. [Tuliskan alasan fundamental mengapa nama ini dipilih dan apa harapan besar yang disematkan di baliknya].
+              </p>
             </div>
-            <h3 className="text-xl font-bold mb-4 uppercase tracking-wider">Makna Nama</h3>
-            <p className="text-white/70 leading-relaxed text-sm md:text-base">
-              Jaysyul Muzaffar bukanlah sekadar sebutan, melainkan sebuah doa dan visi. [Tuliskan penjelasan detail mengenai arti kata Jaysyul Muzaffar di sini, mengapa nama ini yang dipilih menjadi identitas angkatan].
-            </p>
           </motion.div>
 
-          {/* Poin 2: Filosofi Logo */}
+          {/* Card 2: Filosofi Logo */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col items-center text-center group"
+            className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-10 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:bg-white/10 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] text-left"
           >
-            <div className="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center mb-6 group-hover:bg-white group-hover:text-black transition-colors duration-500">
-              <span className="font-serif text-2xl italic">II</span>
+            {/* Watermark Number */}
+            <span className="absolute -right-4 -top-8 text-[160px] font-serif font-bold italic leading-none text-white/[0.03] transition-all duration-500 group-hover:scale-110 group-hover:text-white/[0.06] select-none pointer-events-none">
+              II
+            </span>
+            
+            <div className="relative z-10">
+              <p className="text-xs font-bold tracking-[0.2em] text-white/40 mb-3 uppercase">The What</p>
+              <h3 className="font-serif text-2xl mb-4 text-white">Filosofi Logo</h3>
+              <p className="text-white/70 leading-relaxed text-sm">
+                Setiap sudut dan garis pada lambang ini adalah representasi visual dari visi kami. [Jelaskan elemen visual logomu di sini. Misalnya makna bentuk segitiga, arah garis, dan komposisi warnanya].
+              </p>
             </div>
-            <h3 className="text-xl font-bold mb-4 uppercase tracking-wider">Filosofi Logo</h3>
-            <p className="text-white/70 leading-relaxed text-sm md:text-base">
-              Setiap sudut dan garis pada lambang ini memiliki makna. [Jelaskan elemen visual logomu di sini. Misalnya: Bentuk segitiga merepresentasikan puncak tujuan, lengkungan merepresentasikan dinamika, dsb].
-            </p>
           </motion.div>
 
-          {/* Poin 3: Semangat Perjuangan */}
+          {/* Card 3: Semangat Aksi */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col items-center text-center group"
+            className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-10 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:bg-white/10 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] text-left"
           >
-            <div className="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center mb-6 group-hover:bg-white group-hover:text-black transition-colors duration-500">
-              <span className="font-serif text-2xl italic">III</span>
+            {/* Watermark Number */}
+            <span className="absolute -right-2 -top-8 text-[160px] font-serif font-bold italic leading-none text-white/[0.03] transition-all duration-500 group-hover:scale-110 group-hover:text-white/[0.06] select-none pointer-events-none">
+              III
+            </span>
+            
+            <div className="relative z-10">
+              <p className="text-xs font-bold tracking-[0.2em] text-white/40 mb-3 uppercase">The How</p>
+              <h3 className="font-serif text-2xl mb-4 text-white">Semangat Aksi</h3>
+              <p className="text-white/70 leading-relaxed text-sm">
+                "Fight With Faith Win With Glory". [Gambarkan bagaimana angkatan ini menerjemahkan visinya ke dalam aksi nyata, solidaritas kebersamaan, dan pergerakan menuju masa depan].
+              </p>
             </div>
-            <h3 className="text-xl font-bold mb-4 uppercase tracking-wider">Semangat Aksi</h3>
-            <p className="text-white/70 leading-relaxed text-sm md:text-base">
-              "Fight With Faith Win With Glory". [Gambarkan bagaimana angkatanmu mengimplementasikan tagline ini dalam kehidupan nyata, kebersamaan, dan pergerakan angkatan menuju masa depan].
-            </p>
           </motion.div>
 
         </div>
