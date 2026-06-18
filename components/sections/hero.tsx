@@ -107,9 +107,9 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
-          className="mt-6 text-sm md:text-base font-semibold tracking-[0.25em] uppercase text-white/90 drop-shadow-md"
+          className="-mt-2 mb-4 text-base md:text-lg font-bold tracking-[0.25em] uppercase text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
         >
-          "Fight With Faith Win With Glory"
+          Fight With Faith Win With Glory
         </motion.p>
         {/* BATAS KODE TAGLINE */}
 
