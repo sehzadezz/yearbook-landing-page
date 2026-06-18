@@ -81,7 +81,7 @@ export function Hero() {
           className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-border glass px-5 py-2 text-[11px] uppercase tracking-eyebrow text-muted-foreground"
         >
           <span className="h-1.5 w-1.5 rounded-full bg-foreground" />
-          Graduation Yearbook 2027
+          A Timeless Legacy
         </motion.div>
 
         <h1 className={`${myFont.className} text-5xl text-display text-balance sm:text-7xl md:text-[8.5rem] leading-relaxed`}>
