@@ -58,6 +58,22 @@ export function Hero() {
         style={{ opacity }}
         className="relative z-10 mx-auto max-w-5xl px-6 text-center"
       >
+        {/* KODE LOGO MULAI DARI SINI */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+          className="mb-6 flex justify-center"
+        >
+          <motion.img
+            src="https://raw.githubusercontent.com/sehzadezz/yearbook-landing-page/main/public/images/ALMUZAFFAR%20LOGO.png"
+            alt="Logo Almuzaffar"
+            className="w-24 h-24 md:w-32 md:h-32 object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"
+            animate={{ y: [0, -12, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </motion.div>
+        {/* BATAS KODE LOGO */}
         <motion.div
           initial={{ opacity: 0, y: 20, filter: 'blur(6px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
