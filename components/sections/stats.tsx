@@ -45,7 +45,7 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 
 export function Stats() {
   return (
-    <section className="mx-auto max-w-7xl px-6 pt-24 pb-28 md:pt-32 md:pb-40">
+    <section className="mx-auto max-w-7xl px-6 pt-40 pb-28 md:pt-56 md:pb-40">
       <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
         {stats.map((stat, i) => (
           <Reveal key={stat.label} delay={i * 0.1}>
