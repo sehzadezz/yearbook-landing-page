@@ -7,7 +7,7 @@ import { Volume2, VolumeX, SkipForward, SkipBack } from 'lucide-react'
 
 // DAFTAR LAGU (Ganti sesuai dengan nama file di folder public kamu)
 const playlist = [
-  '/-daylight.mp3',
+  '/daylight.mp3',
   '/time-to-change-your-life.mp3'
 ]
 export function MusicPlayer() {
