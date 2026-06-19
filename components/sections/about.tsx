@@ -37,25 +37,31 @@ export function About() {
 
   return (
     <section id="about" className="relative pt-24 pb-40 md:pt-32 md:pb-56 bg-black text-white overflow-hidden">
-      {/* --- EFEK STUDIO SPOTLIGHT (AMBIENT GLOW) --- */}
-        {/* 1. Cahaya Utama di tengah atas (menyorot judul The Identity) */}
-        <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 w-[600px] md:w-[1000px] h-[300px] md:h-[400px] bg-white/[0.04] rounded-[100%] blur-[100px] md:blur-[120px]"></div>
+      {/* ========================================================= */}
+        {/* MESIN TURBO OPTIMASI: ANTI-LAG UNTUK HP (SMOOTH 60FPS)  */}
+        {/* ========================================================= */}
+
+        {/* 1. Cahaya Utama di tengah atas (Blur disesuaikan untuk HP) */}
+        <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 w-[300px] md:w-[1000px] h-[150px] md:h-[400px] bg-white/[0.04] rounded-[100%] blur-[50px] md:blur-[120px]"></div>
         
         {/* 2. Cahaya Bias di sudut kiri bawah */}
-        <div className="pointer-events-none absolute -bottom-32 -left-40 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-white/[0.03] rounded-full blur-[100px] md:blur-[120px]"></div>
+        <div className="pointer-events-none absolute -bottom-32 -left-40 w-[250px] md:w-[600px] h-[250px] md:h-[600px] bg-white/[0.03] rounded-full blur-[50px] md:blur-[120px]"></div>
         
         {/* 3. Cahaya Bias di sudut kanan atas */}
-        <div className="pointer-events-none absolute top-1/4 -right-40 w-[400px] md:w-[500px] h-[400px] md:h-[500px] bg-white/[0.02] rounded-full blur-[100px] md:blur-[120px]"></div>
-        {/* --- EFEK SCROLLING MARQUEE (TEKS RAKSASA BERJALAN) --- */}
-        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-full overflow-hidden pointer-events-none select-none flex z-0">
+        <div className="pointer-events-none absolute top-1/4 -right-40 w-[200px] md:w-[500px] h-[200px] md:h-[500px] bg-white/[0.02] rounded-full blur-[50px] md:blur-[120px]"></div>
+
+        {/* Teks Raksasa Berjalan dengan Hardware Acceleration (transform-gpu) */}
+        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-full overflow-hidden pointer-events-none select-none flex z-0 transform-gpu will-change-transform">
           <motion.div
             animate={{ x: ["0%", "-50%"] }}
-            transition={{ repeat: Infinity, ease: "linear", duration: 50 }}
-            className="flex whitespace-nowrap text-[120px] md:text-[220px] font-extrabold text-white/10 uppercase tracking-tighter"
+            transition={{ repeat: Infinity, ease: "linear", duration: 60 }} // Durasi diubah ke 60s agar pergerakan di HP jauh lebih santai dan ringan
+            className="flex whitespace-nowrap text-[80px] md:text-[220px] font-extrabold text-white/[0.06] md:text-white/10 uppercase tracking-tighter transform-gpu"
           >
             {"FIGHT WITH FAITH WIN WITH GLORY • JAYSYUL MUZAFFAR • FIGHT WITH FAITH WIN WITH GLORY • JAYSYUL MUZAFFAR • FIGHT WITH FAITH WIN WITH GLORY • JAYSYUL MUZAFFAR • "}
           </motion.div>
         </div>
+
+        {/* ========================================================= */}
 
       <div className="mx-auto max-w-7xl px-6 relative z-10">
         {/* Section Header */}
