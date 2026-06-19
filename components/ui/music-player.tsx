@@ -4,8 +4,9 @@ import React, { useState, useRef, useEffect } from 'react'
 import { Play, Pause, SkipBack, SkipForward, Shuffle, Repeat, Volume2, VolumeX, ListMusic } from 'lucide-react'
 
 const playlist = [
-  '/daylight.mp3',
-  '/time-to-change-your-life.mp3'
+  // Kita ambil langsung dari server GitHub-mu agar tidak macet di v0
+  'https://raw.githubusercontent.com/sehzadezz/yearbook-landing-page/main/public/daylightcomp.mp3',
+  'https://raw.githubusercontent.com/sehzadezz/yearbook-landing-page/main/public/time-to-change-your-life.mp3'
 ]
 
 const formatTime = (time: number) => {
