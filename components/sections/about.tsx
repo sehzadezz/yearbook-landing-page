@@ -47,14 +47,13 @@ export function About() {
         {/* 3. Cahaya Bias di sudut kanan atas */}
         <div className="pointer-events-none absolute top-1/4 -right-40 w-[400px] md:w-[500px] h-[400px] md:h-[500px] bg-white/[0.02] rounded-full blur-[100px] md:blur-[120px]"></div>
         {/* --- EFEK SCROLLING MARQUEE (TEKS RAKSASA BERJALAN) --- */}
-        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-full overflow-hidden pointer-events-none select-none flex z-0 mix-blend-overlay">
+        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-full overflow-hidden pointer-events-none select-none flex z-0">
           <motion.div
             animate={{ x: ["0%", "-50%"] }}
             transition={{ repeat: Infinity, ease: "linear", duration: 50 }}
-            className="flex whitespace-nowrap text-[120px] md:text-[220px] font-extrabold text-white/[0.03] uppercase tracking-tighter"
+            className="flex whitespace-nowrap text-[120px] md:text-[220px] font-extrabold text-white/10 uppercase tracking-tighter"
           >
-            {/* Teks sengaja diulang panjang agar efek putarannya (looping) tidak terputus */}
-            FIGHT WITH FAITH WIN WITH GLORY • JAYSYUL MUZAFFAR • FIGHT WITH FAITH WIN WITH GLORY • JAYSYUL MUZAFFAR • FIGHT WITH FAITH WIN WITH GLORY • JAYSYUL MUZAFFAR • 
+            {"FIGHT WITH FAITH WIN WITH GLORY • JAYSYUL MUZAFFAR • FIGHT WITH FAITH WIN WITH GLORY • JAYSYUL MUZAFFAR • FIGHT WITH FAITH WIN WITH GLORY • JAYSYUL MUZAFFAR • "}
           </motion.div>
         </div>
 
