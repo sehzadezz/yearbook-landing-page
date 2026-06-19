@@ -37,8 +37,15 @@ export function About() {
 
   return (
     <section id="about" className="relative pt-24 pb-40 md:pt-32 md:pb-56 bg-black text-white overflow-hidden">
-      {/* Background Glow Effect */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/5 rounded-full blur-[120px] pointer-events-none" />
+      {/* --- EFEK STUDIO SPOTLIGHT (AMBIENT GLOW) --- */}
+        {/* 1. Cahaya Utama di tengah atas (menyorot judul The Identity) */}
+        <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 w-[600px] md:w-[1000px] h-[300px] md:h-[400px] bg-white/[0.04] rounded-[100%] blur-[100px] md:blur-[120px]"></div>
+        
+        {/* 2. Cahaya Bias di sudut kiri bawah */}
+        <div className="pointer-events-none absolute -bottom-32 -left-40 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-white/[0.03] rounded-full blur-[100px] md:blur-[120px]"></div>
+        
+        {/* 3. Cahaya Bias di sudut kanan atas */}
+        <div className="pointer-events-none absolute top-1/4 -right-40 w-[400px] md:w-[500px] h-[400px] md:h-[500px] bg-white/[0.02] rounded-full blur-[100px] md:blur-[120px]"></div>
 
       <div className="mx-auto max-w-7xl px-6 relative z-10">
         {/* Section Header */}
