@@ -12,9 +12,9 @@ const lines = ['Jaysyul Muzaffar']
 export function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const heroImages = [
-    "/images/hero.png",
-    "/images/ikhwanall.JPG",
-    "/images/Akhwat.png"
+    "https://raw.githubusercontent.com/sehzadezz/.../hero.png", 
+    "https://raw.githubusercontent.com/sehzadezz/.../ikhwanall.JPG",
+    "https://raw.githubusercontent.com/sehzadezz/.../Akhwat.png"
   ]
   useEffect(() => {
     const timer = setInterval(() => {
