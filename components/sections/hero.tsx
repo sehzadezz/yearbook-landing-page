@@ -13,12 +13,15 @@ export function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const heroImages = [
     "/images/hero.png",
+    "/images/ikhwanall.JPG", // Foto ke-2 ditambahkan di sini
     "/images/Akhwat.png"
   ]
+
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev === 0 ? 1 : 0))
-    }, 4000) 
+      // Logika di bawah ini otomatis menyesuaikan berapapun jumlah gambarmu
+      setCurrentSlide((prev) => (prev === heroImages.length - 1 ? 0 : prev + 1))
+    }, 4000)
     return () => clearInterval(timer)
   }, [])
   const ref = useRef<HTMLElement>(null)
