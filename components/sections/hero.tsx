@@ -13,7 +13,6 @@ export function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const heroImages = [
     "/images/hero.png",
-    "/images/ikhwanall.JPG",
     "/images/Akhwat.png"
   ]
   useEffect(() => {
