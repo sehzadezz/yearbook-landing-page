@@ -13,7 +13,7 @@ export function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const heroImages = [
     "/images/hero.png",
-    "/images/ikhwanallcomp.png", // Foto ke-2 ditambahkan di sini
+    "https://raw.githubusercontent.com/sehzadezz/.../ikhwanallcomp.png", // Pakai link raw di sini
     "/images/Akhwat.png"
   ]
 
