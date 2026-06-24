@@ -42,7 +42,7 @@ export function Stats() {
     // ==========================================
     // EFEK TARIK KE ATAS ADA DI BARIS INI (-mt-10 md:-mt-24)
     // ==========================================
-    <section className="relative pt-0 pb-20 bg-black text-white z-20 -mt-10 md:-mt-24">
+    <section className="relative pt-0 pb-20 bg-black text-white z-20 -mt-10 md:-mt-40">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Mengubah pembagian kolom menjadi 5 (md:grid-cols-5) agar pas */}
