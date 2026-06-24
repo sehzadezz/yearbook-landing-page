@@ -4,12 +4,12 @@ import { ParallaxImage } from '@/components/parallax-image'
 import { Reveal } from '@/components/reveal'
 
 const photos = [
-  { src: '/images/gallery-1.png', caption: 'Hallway Laughter', span: 'md:row-span-2' },
-  { src: '/images/gallery-2.png', caption: 'Afternoon Light', span: '' },
-  { src: '/images/gallery-3.png', caption: 'The Ceremony', span: '' },
-  { src: '/images/gallery-4.png', caption: 'Cap & Tassel', span: 'md:row-span-2' },
-  { src: '/images/gallery-5.png', caption: 'On The Road', span: '' },
-  { src: '/images/gallery-6.png', caption: 'Lights & Nights', span: '' },
+  { src: '/images/ gallery-1.png', caption: 'Hallway Laughter', span: 'md:row-span-2' },
+  { src: '/images/ gallery-2.png', caption: 'Afternoon Light', span: '' },
+  { src: '/images/ gallery-3.png', caption: 'The Ceremony', span: '' },
+  { src: '/images/ gallery-4.png', caption: 'Cap & Tassel', span: 'md:row-span-2' },
+  { src: '/images/ gallery-5.png', caption: 'On The Road', span: '' },
+  { src: '/images/ gallery-6.png', caption: 'Lights & Nights', span: '' },
 ]
 
 export function Gallery() {
