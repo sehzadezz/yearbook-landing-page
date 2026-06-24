@@ -26,7 +26,7 @@ const philosophyData = [
     roman: 'III',
     tag: 'The How',
     title: 'Semangat Aksi',
-    teaser: '"Fight With Faith Win With Glory". Bagaimana kami menerjemahkan visi ini menjadi aksi nyata.',
+    teaser: '"Fight With Faith Win With Glory". Bagaimana kami menerjemahkan visi ini menjadi aksi nyata bukan hanya sekedar Tagline.',
     fullText: 'Semboyan ini adalah kompas pergerakan kami. "Fight With Faith" bermakna setiap usaha harus berlandaskan integritas dan niat yang lurus. "Win With Glory" adalah tujuannya—bukan sekadar menang untuk diri sendiri, melainkan menang dengan membawa kebermanfaatan, karya, dan warisan kebaikan bagi sekitar.'
   }
 ]
