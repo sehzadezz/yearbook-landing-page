@@ -5,37 +5,37 @@ import Image from 'next/image'
 
 const students = [
   {
-    name: 'Amara Okafor',
+    name: 'Abdullah Ahmad Syahid',
     cls: 'Class 12-A',
     quote: 'The future belongs to those who believe.',
     img: '/images/student-1.png',
   },
   {
-    name: 'Daniel Reyes',
+    name: ' Abid Kaab AlPudli',
     cls: 'Class 12-B',
     quote: 'We made ordinary days unforgettable.',
     img: '/images/student-2.png',
   },
   {
-    name: 'Sofia Lindqvist',
+    name: 'Ahmad Nizar',
     cls: 'Class 12-A',
     quote: 'Every ending is a quiet new beginning.',
     img: '/images/student-3.png',
   },
   {
-    name: 'Kenji Watanabe',
+    name: 'Ahmad Syauqi Ar Raihan',
     cls: 'Class 12-C',
     quote: 'Chase the dream, keep the friends.',
     img: '/images/student-4.png',
   },
   {
-    name: 'Maya Thompson',
+    name: 'Ali Mahmud',
     cls: 'Class 12-B',
     quote: 'Here is to the nights we will never forget.',
     img: '/images/student-5.png',
   },
   {
-    name: 'Elias Mensah',
+    name: 'Dzakwan Daffa Husein',
     cls: 'Class 12-C',
     quote: 'Greatness is built one memory at a time.',
     img: '/images/student-6.png',
