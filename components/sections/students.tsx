@@ -8,7 +8,7 @@ import Image from 'next/image'
 const students = [
   {
     name: 'Abdullah Ahmad Syahid',
-    cls: 'Class 12-A',
+    cls: 'Sorong-Papua',
     quote: 'The future belongs to those who believe.',
     img: 'https://raw.githubusercontent.com/sehzadezz/yearbook-landing-page/main/public/images/syahid.png',
   },
