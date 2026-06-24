@@ -8,7 +8,7 @@ const students = [
     name: 'Abdullah Ahmad Syahid',
     cls: 'Class 12-A',
     quote: 'The future belongs to those who believe.',
-    img: '/images/syahid.png',
+    img: 'https://raw.githubusercontent.com/sehzadezz/yearbook-landing-page/main/public/images/syahid.png',
   },
   {
     name: ' Abid Kaab AlPudli',
