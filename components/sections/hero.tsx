@@ -13,7 +13,7 @@ export function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const heroImages = [
     "/images/hero.png",
-    "/images/ikhwanall.JPG", // Foto ke-2 ditambahkan di sini
+    "/images/ikhwanallcomp.png", // Foto ke-2 ditambahkan di sini
     "/images/Akhwat.png"
   ]
 
