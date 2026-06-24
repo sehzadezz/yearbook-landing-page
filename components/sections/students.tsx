@@ -1,5 +1,7 @@
 'use client'
 
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Reveal } from '@/components/reveal'
 import Image from 'next/image'
 
@@ -43,48 +45,88 @@ const students = [
 ]
 
 export function Students() {
-  return (
-    <section id="students" className="mx-auto max-w-7xl px-6 py-28 md:py-40">
-      <div className="mb-16 max-w-2xl md:mb-20">
-        <Reveal>
-          <p className="mb-4 text-xs uppercase tracking-[0.25em] text-muted-foreground">
-            Student Wall
-          </p>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <h2 className="font-serif text-4xl leading-tight tracking-tight text-balance sm:text-5xl md:text-6xl">
-            The Faces Behind The Memories
-          </h2>
-        </Reveal>
-      </div>
+  const [selectedStudent, setSelectedStudent] = useState<any>(null)
 
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {students.map((student, i) => (
-          <Reveal key={student.name} delay={(i % 3) * 0.1}>
-            <article className="group relative h-full overflow-hidden rounded-3xl border border-border glass p-6 transition-all duration-500 hover:-translate-y-1 hover:border-foreground/30 hover:shadow-[0_0_40px_-12px_rgba(255,255,255,0.25)]">
-              <div className="flex items-center gap-4">
-                <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full border border-border">
-                  <Image
-                    src={student.img || "/placeholder.svg"}
-                    alt={`Portrait of ${student.name}`}
-                    fill
-                    className="object-cover grayscale transition-all duration-500 group-hover:grayscale-0"
-                  />
-                </div>
+  return (
+    <section id="students" className="relative py-20 bg-black text-white z-20">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="mb-12">
+          <Reveal>
+            <h2 className="text-sm tracking-widest text-white/50 uppercase mb-2">Student Wall</h2>
+          </Reveal>
+          <Reveal>
+            <h3 className="text-4xl md:text-5xl font-serif">The Faces Behind The Memories</h3>
+          </Reveal>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {students.map((student, index) => (
+            <motion.div
+              key={index}
+              onClick={() => setSelectedStudent(student)}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="p-6 rounded-2xl bg-white/[0.03] border border-white/10 hover:bg-white/[0.08] transition-all cursor-pointer hover:-translate-y-1 group"
+            >
+              <div className="flex items-center gap-4 mb-4">
+                <img
+                  src={student.img}
+                  alt={student.name}
+                  className="w-16 h-16 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                />
                 <div>
-                  <h3 className="text-lg font-medium text-foreground">
-                    {student.name}
-                  </h3>
-                  <p className="text-sm text-muted-foreground">{student.cls}</p>
+                  <h4 className="font-bold text-lg">{student.name}</h4>
+                  <p className="text-white/50 text-sm">{student.cls}</p>
                 </div>
               </div>
-              <p className="mt-6 font-serif text-xl italic leading-snug text-muted-foreground transition-colors duration-500 group-hover:text-foreground">
-                &ldquo;{student.quote}&rdquo;
-              </p>
-            </article>
-          </Reveal>
-        ))}
+              <p className="text-white/70 italic font-serif">"{student.quote}"</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
+
+      <AnimatePresence>
+        {selectedStudent && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedStudent(null)}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm cursor-zoom-out"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-2xl bg-[#0a0a0a] border border-white/10 rounded-3xl p-8 md:p-12 flex flex-col items-center shadow-2xl cursor-default"
+            >
+              <button
+                onClick={() => setSelectedStudent(null)}
+                className="absolute top-6 right-8 text-white/50 hover:text-white text-2xl transition-colors"
+              >
+                ✕
+              </button>
+              <img
+                src={selectedStudent.img}
+                alt={selectedStudent.name}
+                className="w-48 h-48 md:w-72 md:h-72 object-cover rounded-2xl mb-8 shadow-2xl border border-white/10"
+              />
+              <h3 className="text-3xl md:text-4xl font-serif font-bold text-white mb-2 text-center">
+                {selectedStudent.name}
+              </h3>
+              <p className="text-white/50 mb-6 tracking-widest uppercase text-sm md:text-base">
+                {selectedStudent.cls}
+              </p>
+              <p className="text-xl md:text-2xl italic text-white/80 text-center font-serif leading-relaxed">
+                "{selectedStudent.quote}"
+              </p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   )
 }
