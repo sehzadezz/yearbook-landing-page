@@ -14,9 +14,9 @@ const students = [
   },
   {
     name: ' Abid Kaab AlPudli',
-    cls: 'Class 12-B',
+    cls: 'Karawaci-Tangerang Kota',
     quote: 'We made ordinary days unforgettable.',
-    img: '/images/student-2.png',
+    img: '/https://raw.githubusercontent.com/sehzadezz/yearbook-landing-page/main/public/images/abid.png',
   },
   {
     name: 'Ahmad Nizar',
