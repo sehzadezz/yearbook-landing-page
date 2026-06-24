@@ -18,7 +18,7 @@ const philosophyData = [
     roman: 'II',
     tag: 'The What',
     title: 'Filosofi Logo',
-    teaser: 'Setiap sudut dan garis pada lambang ini adalah representasi visual dari identitas kami.',
+    teaser: 'Setiap sudut dan garis pada lambang ini adalah representasi visual dari identitas Jaysyul Muzaffar.',
     fullText: 'Desain logo ini memadukan unsur dinamis dan kokoh. Sudut tajam melambangkan ambisi untuk terus mendaki mencapai puncak prestasi. Sementara garis yang saling bertaut melambangkan ukhuwah (persaudaraan) yang erat, saling melindungi dan menyatukan setiap individu di dalamnya tanpa memandang perbedaan.'
   },
   {
