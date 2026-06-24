@@ -10,7 +10,7 @@ const philosophyData = [
     roman: 'I',
     tag: 'The Why',
     title: 'Makna Nama',
-    teaser: 'Jaysyul Muzaffar bukanlah sekadar sebutan, melainkan sebuah doa dan visi agung.',
+    teaser: 'Jaysyul Muzaffar bukanlah sekadar sebutan, melainkan sebuah doa dan visi besar yang akan terus ada dan akan terus diperjuangkan.',
     fullText: 'Berakar dari bahasa Arab, nama ini merepresentasikan doa abadi agar angkatan ini menjadi barisan pejuang yang selalu dibimbing menuju kemenangan yang diridhai. Ini adalah pengingat bahwa setiap langkah akademis dan pengabdian kita harus dinaungi oleh iman yang teguh untuk mencapai kejayaan sejati.'
   },
   {
