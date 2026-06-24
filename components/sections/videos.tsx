@@ -11,9 +11,9 @@ const featured = {
 }
 
 const clips = [
-  { src: '/images/video-2.png', title: 'Prom Night', meta: '8 min' },
-  { src: '/images/video-3.png', title: 'Sports Day', meta: '6 min' },
-  { src: '/images/video-4.png', title: 'Rooftop Sunsets', meta: '4 min' },
+  { src: '/ images/video-2.png', title: 'Prom Night', meta: '8 min' },
+  { src: '/ images/video-3.png', title: 'Sports Day', meta: '6 min' },
+  { src: '/ images/video-4.png', title: 'Rooftop Sunsets', meta: '4 min' },
 ]
 
 function PlayBadge({ large = false }: { large?: boolean }) {
