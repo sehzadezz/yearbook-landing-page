@@ -38,7 +38,7 @@ const students = [
   },
   {
     name: 'Dzakwan Daffa Husein',
-    cls: 'Tangerang',
+    cls: 'Tangerang Kota',
     quote: 'Greatness is built one memory at a time.',
     img: 'https://raw.githubusercontent.com/sehzadezz/yearbook-landing-page/main/public/images/dzakwan.png',
   },
