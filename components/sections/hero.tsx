@@ -4,11 +4,26 @@ import { Magnetic } from '@/components/magnetic'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { ArrowDown, Play } from 'lucide-react'
 import Image from 'next/image'
-import { useRef } from 'react'
-
-const lines = ['Every Moment.', 'Every Story.', 'Every Memory.']
+import { useRef, useState, useEffect } from 'react'
+import { Playfair_Display } from 'next/font/google'
+const myFont = Playfair_Display({ subsets: ['latin'] })
+const lines = ['Jaysyul Muzaffar']
 
 export function Hero() {
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const heroImages = [
+    "/images/hero.png",
+    "https://raw.githubusercontent.com/sehzadezz/yearbook-landing-page/main/public/images/ikhwanallcomp.png", // Pakai link raw di sini
+    "/images/Akhwat.png"
+  ]
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      // Logika di bawah ini otomatis menyesuaikan berapapun jumlah gambarmu
+      setCurrentSlide((prev) => (prev === heroImages.length - 1 ? 0 : prev + 1))
+    }, 4000)
+    return () => clearInterval(timer)
+  }, [])
   const ref = useRef<HTMLElement>(null)
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -26,13 +41,18 @@ export function Hero() {
       className="relative flex min-h-screen items-center justify-center overflow-hidden"
     >
       <motion.div style={{ y, scale, filter: blur }} className="absolute inset-0">
-        <Image
-          src="/images/hero.png"
-          alt="Graduates throwing their caps into a golden sunset sky"
-          fill
-          priority
-          className="object-cover"
-        />
+        {heroImages.map((img, index) => (
+          <img
+            key={img}
+            src={img}
+            alt={`Hero Background ${index + 1}`}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
+              index === currentSlide ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        ))}
+          
+        
         <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/45 to-background" />
         <div className="absolute inset-0 bg-background/30" />
       </motion.div>
@@ -41,6 +61,22 @@ export function Hero() {
         style={{ opacity }}
         className="relative z-10 mx-auto max-w-5xl px-6 text-center"
       >
+        {/* KODE LOGO MULAI DARI SINI */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+          className="mb-6 flex justify-center"
+        >
+          <motion.img
+            src="https://raw.githubusercontent.com/sehzadezz/yearbook-landing-page/main/public/images/ALMUZAFFAR%20LOGO.png"
+            alt="Logo Almuzaffar"
+            className="w-32 h-32 md:w-48 md:h-48 object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"
+            animate={{ y: [0, -12, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </motion.div>
+        {/* BATAS KODE LOGO */}
         <motion.div
           initial={{ opacity: 0, y: 20, filter: 'blur(6px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
@@ -48,12 +84,12 @@ export function Hero() {
           className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-border glass px-5 py-2 text-[11px] uppercase tracking-eyebrow text-muted-foreground"
         >
           <span className="h-1.5 w-1.5 rounded-full bg-foreground" />
-          Graduation Yearbook 2027
+          The Journey & Beyond
         </motion.div>
 
-        <h1 className="font-serif text-5xl text-display text-balance sm:text-7xl md:text-[8.5rem]">
+        <h1 className={`${myFont.className} text-5xl text-display text-balance sm:text-7xl md:text-[8.5rem] leading-relaxed`}>
           {lines.map((line, i) => (
-            <span key={line} className="block overflow-hidden py-[0.5%]">
+            <span key={line} className="block overflow-hidden pt-4 pb-10 px-4">
               <motion.span
                 className="block"
                 initial={{ y: '115%', rotate: 3 }}
@@ -69,6 +105,16 @@ export function Hero() {
             </span>
           ))}
         </h1>
+        {/* KODE TAGLINE MULAI DARI SINI */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
+          className="-mt-2 mb-4 text-base md:text-lg font-bold tracking-[0.25em] uppercase text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+        >
+          - Fight With Faith Win With Glory -
+        </motion.p>
+        {/* BATAS KODE TAGLINE */}
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -79,30 +125,47 @@ export function Hero() {
           A digital archive of friendship, growth, and unforgettable memories.
         </motion.p>
 
+        {/* KODE TOMBOL BARU DENGAN INTERAKTIVITAS & GLOW */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 1.15 }}
+          transition={{ duration: 0.9, delay: 1.1, ease: "easeOut" }}
           className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
         >
-          <Magnetic className="w-full sm:w-auto">
-            <a
-              href="#gallery"
-              className="block w-full rounded-full bg-accent px-8 py-3.5 text-center text-sm font-medium text-accent-foreground transition-shadow duration-300 hover:shadow-[0_0_50px_-8px_rgba(255,255,255,0.5)] sm:w-auto"
+          {/* Tombol Utama: Explore Memories with Pop and Glow */}
+          <motion.a
+            href="#gallery"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.98 }}
+            className="group flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-black transition-all duration-300 ease-out hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] shadow-[0_0_20px_rgba(255,255,255,0.2)]"
+          >
+            Explore Memories
+            <motion.span
+              className="transition-transform group-hover:translate-x-1"
+              initial={{ x: 0 }}
+              animate={{ x: 0 }}
             >
-              Explore Memories
-            </a>
-          </Magnetic>
-          <Magnetic className="w-full sm:w-auto">
-            <a
-              href="#videos"
-              className="group flex w-full items-center justify-center gap-2 rounded-full border border-border glass px-8 py-3.5 text-sm font-medium text-foreground transition-colors hover:border-foreground/30 sm:w-auto"
+              →
+            </motion.span>
+          </motion.a>
+
+          {/* Tombol Kedua: Watch Highlights */}
+          <motion.a
+            href="#videos"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.98 }}
+            className="flex items-center gap-2 rounded-full border-2 border-white/40 px-8 py-3.5 text-sm font-semibold text-white transition-all duration-300 ease-out hover:border-white hover:bg-white/10 hover:shadow-[0_0_15px_rgba(255,255,255,0.15)]"
+          >
+            <motion.span
+              animate={{ rotate: [0, 10, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5, repeatDelay: 1 }}
             >
-              <Play className="h-4 w-4 transition-transform group-hover:scale-110" />
-              Watch Highlights
-            </a>
-          </Magnetic>
+              ▶
+            </motion.span>
+            Watch Highlights
+          </motion.a>
         </motion.div>
+        {/* BATAS KODE TOMBOL BARU */}
       </motion.div>
 
       <motion.a
