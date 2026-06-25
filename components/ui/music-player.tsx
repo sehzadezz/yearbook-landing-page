@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useRef, useEffect } from 'react'
-import { Play, Pause, SkipBack, SkipForward, Shuffle, Repeat, Volume2, VolumeX, ListMusic } from 'lucide-react'
+import { Play, Pause, SkipBack, SkipForward, Shuffle, Repeat, Volume2, VolumeX, ListMusic, ChevronDown } from 'lucide-react'
 
 const playlist = [
   // Kita ambil langsung dari server GitHub-mu agar tidak macet di v0
@@ -28,6 +28,7 @@ export function MusicPlayer() {
 
   // STATE BARU: Untuk mendeteksi apakah kursor mouse sedang mendekat
   const [isHovered, setIsHovered] = useState(false)
+  const [isMinimized, setIsMinimized] = useState(false)
 
   const audioRef = useRef<HTMLAudioElement>(null)
 
@@ -114,6 +115,18 @@ export function MusicPlayer() {
         loop={isRepeat} 
         preload="auto" 
       />
+      {/* --- TOMBOL MINIMIZE FISIK --- */}
+        {isHovered && (
+          <button
+            onClick={(e) => {
+              e.stopPropagation() // Mencegah kotak utama menyadari klik ini
+              setIsHovered(false) // Memaksa kotak kembali mengecil
+            }}
+            className="absolute top-4 right-4 z-50 text-white/50 hover:text-white transition-colors"
+          >
+            <ChevronDown size={22} />
+          </button>
+        )}
 
       {/* --- WUJUD 1: MINI PLAYER BULAT (Hanya terlihat saat kursor jauh) --- */}
       <div 
