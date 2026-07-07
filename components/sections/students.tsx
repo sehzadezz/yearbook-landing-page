@@ -10,37 +10,37 @@ const students = [
     name: 'Abdullah Ahmad Syahid',
     cls: 'Makassar',
     quote: 'The future belongs to those who believe.',
-    img: 'https://raw.githubusercontent.com/sehzadezz/yearbook-landing-page/main/public/images/syahid.png',
+    img: '/images/syahid.png',
   },
   {
     name: ' Abid Kaab AlPudli',
     cls: 'Karawaci-Tangerang Kota',
     quote: 'We made ordinary days unforgettable.',
-    img: 'https://raw.githubusercontent.com/sehzadezz/yearbook-landing-page/main/public/images/abid.png',
+    img: '/images/abid.png',
   },
   {
     name: 'Ahmad Nizar',
     cls: 'Depok',
     quote: 'Every ending is a quiet new beginning.',
-    img: 'https://raw.githubusercontent.com/sehzadezz/yearbook-landing-page/main/public/images/nizar.png',
+    img: '/images/nizar.png',
   },
   {
     name: 'Ahmad Syauqi Ar Raihan',
     cls: 'Malang',
     quote: 'Chase the dream, keep the friends.',
-    img: 'https://raw.githubusercontent.com/sehzadezz/yearbook-landing-page/main/public/images/rehan.png',
+    img: '/images/rehan.png',
   },
   {
     name: 'Ali Mahmud',
     cls: 'Kendari',
     quote: 'Here is to the nights we will never forget.',
-    img: 'https://raw.githubusercontent.com/sehzadezz/yearbook-landing-page/main/public/images/ali.png',
+    img: '/images/ali.png',
   },
   {
     name: 'Dzakwan Daffa Husein',
     cls: 'Tangerang Kota',
     quote: 'Greatness is built one memory at a time.',
-    img: 'https://raw.githubusercontent.com/sehzadezz/yearbook-landing-page/main/public/images/dzakwan.png',
+    img: '/images/dzakwan.png',
   },
 ]
 
