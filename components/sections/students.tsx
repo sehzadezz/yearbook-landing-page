@@ -16,31 +16,31 @@ const students = [
     name: ' Abid Kaab AlPudli',
     cls: 'Karawaci-Tangerang Kota',
     quote: 'We made ordinary days unforgettable.',
-    img: '/https://raw.githubusercontent.com/sehzadezz/yearbook-landing-page/main/public/images/abid.png',
+    img: '/ https://raw.githubusercontent.com/sehzadezz/yearbook-landing-page/main/public/images/abid.png',
   },
   {
     name: 'Ahmad Nizar',
     cls: 'Class 12-A',
     quote: 'Every ending is a quiet new beginning.',
-    img: '/images/student-3.png',
+    img: '/images/student- 3.png',
   },
   {
     name: 'Ahmad Syauqi Ar Raihan',
     cls: 'Class 12-C',
     quote: 'Chase the dream, keep the friends.',
-    img: '/images/student-4.png',
+    img: '/images/student- 4.png',
   },
   {
     name: 'Ali Mahmud',
     cls: 'Class 12-B',
     quote: 'Here is to the nights we will never forget.',
-    img: '/images/student-5.png',
+    img: '/images/student- 5.png',
   },
   {
     name: 'Dzakwan Daffa Husein',
     cls: 'Class 12-C',
     quote: 'Greatness is built one memory at a time.',
-    img: '/images/student-6.png',
+    img: '/images/student- 6.png',
   },
 ]
 
