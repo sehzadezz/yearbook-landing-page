@@ -11,6 +11,7 @@ import { Stats } from '@/components/sections/stats'
 import { Students } from '@/components/sections/students'
 import { Timeline } from '@/components/sections/timeline'
 import { Videos } from '@/components/sections/videos'
+import { MusicPlayer } from '@/components/ui/music-player'
 
 export default function Page() {
   return (
@@ -30,6 +31,8 @@ export default function Page() {
         <Future />
         <Footer />
       </div>
+      
+      <MusicPlayer />
     </main>
   )
 }
