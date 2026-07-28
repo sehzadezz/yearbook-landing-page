@@ -65,12 +65,6 @@ export function Videos() {
   <div className="absolute inset-0 flex items-center justify-center">
     <PlayBadge large />
   </div>
-  <div className="absolute bottom-0 left-0 p-6 md:p-10">
-    <h3 className="font-serif text-2xl tracking-tight text-foreground md:text-4xl">
-      A STEP TO THE LIGHT
-    </h3>
-    <p className="mt-2 text-sm text-muted-foreground">Short Film - 20 min</p>
-  </div>
 </a>
       </Reveal>
 
