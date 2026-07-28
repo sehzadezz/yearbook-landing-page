@@ -5,15 +5,15 @@ import { Play } from 'lucide-react'
 import Image from 'next/image'
 
 const featured = {
-  src: '/images/video-1.png',
+  src: '/images/video-1.png ',
   title: 'Graduation Ceremony 2027',
   meta: 'Full Film · 24 min',
 }
 
 const clips = [
-  { src: '/images/video-2.png', title: 'Prom Night', meta: '8 min' },
-  { src: '/images/video-3.png', title: 'Sports Day', meta: '6 min' },
-  { src: '/images/video-4.png', title: 'Rooftop Sunsets', meta: '4 min' },
+  { src: '/images/video-2.png ', title: 'Prom Night', meta: '8 min' },
+  { src: '/images/video-3.png ', title: 'Sports Day', meta: '6 min' },
+  { src: '/images/video-4.png ', title: 'Rooftop Sunsets', meta: '4 min' },
 ]
 
 function PlayBadge({ large = false }: { large?: boolean }) {
