@@ -50,27 +50,28 @@ export function Videos() {
       </div>
 
       <Reveal>
-        <button
-          type="button"
-          className="group relative mb-5 block aspect-video w-full overflow-hidden rounded-3xl border border-border text-left"
-        >
-          <Image
-            src={featured.src || "/placeholder.svg"}
-            alt={featured.title}
-            fill
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <PlayBadge large />
-          </div>
-          <div className="absolute bottom-0 left-0 p-6 md:p-10">
-            <h3 className="font-serif text-2xl tracking-tight text-foreground md:text-4xl">
-              {featured.title}
-            </h3>
-            <p className="mt-2 text-sm text-muted-foreground">{featured.meta}</p>
-          </div>
-        </button>
+        <a
+  href="https://www.youtube.com/watch?v=CpG0p3Ungrw"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="group relative mb-8 block aspect-video w-full overflow-hidden rounded-3xl border border-border text-left"
+>
+  <img
+    src="https://img.youtube.com/vi/CpG0p3Ungrw/maxresdefault.jpg"
+    alt="A STEP TO THE LIGHT"
+    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+  />
+  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+  <div className="absolute inset-0 flex items-center justify-center">
+    <PlayBadge large />
+  </div>
+  <div className="absolute bottom-0 left-0 p-6 md:p-10">
+    <h3 className="font-serif text-2xl tracking-tight text-foreground md:text-4xl">
+      A STEP TO THE LIGHT
+    </h3>
+    <p className="mt-2 text-sm text-muted-foreground">Short Film - 20 min</p>
+  </div>
+</a>
       </Reveal>
 
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
